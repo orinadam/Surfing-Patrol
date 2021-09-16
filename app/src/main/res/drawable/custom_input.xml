@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <padding
+                android:bottom="14dp"
+                android:left="12dp"
+                android:right="14dp"
+                android:top="14dp" />
+            <solid android:color="@color/text_inp_login" />
+            <stroke android:color="@color/text_inp_login_border" android:width="2dp" />
+        </shape>
+    </item>
+</selector>

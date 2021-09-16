@@ -1,0 +1,2 @@
+rootProject.name = "Surfing Patrol"
+include ':app'
