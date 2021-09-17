@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:id="@+id/table1">
+
+    <TableRow android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="1dp"
+        android:id="@+id/row"
+
+        >
+
+        <TextView android:textColor="#FFFFFF"
+            android:id="@+id/hour"
+            android:layout_height="20dp"
+            android:layout_width="40dp"
+            android:textSize="15sp"
+            android:text="16:00"
+            android:textAlignment="center"
+            android:rotation="270"
+            android:layout_marginBottom="0dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="-10dp"
+            android:background="@drawable/hour_show"
+            />
+
+        <TextView android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="-20dp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:id="@+id/height"
+            android:text="0.8-1m"
+            android:height="40sp"
+            android:textSize="20sp"
+            android:background="@drawable/wave_wind_height_vel"/>
+        <TextView android:layout_height="match_parent"
+            android:layout_width="2dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="-5dp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+
+            android:id="@+id/period"
+            android:text="6-7s"
+            android:height="40sp"
+            android:textSize="20sp"
+            android:background="@drawable/wave_wind_period_dir"/>
+        <TextView android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="-10dp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:id="@+id/description"
+            android:text="head"
+            android:height="40sp"
+            android:textSize="20sp"
+            android:background="@drawable/wave_rain_desc"/>
+
+
+    </TableRow>
+</TableLayout>

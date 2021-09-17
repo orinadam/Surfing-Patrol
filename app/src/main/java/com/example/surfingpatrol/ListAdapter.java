@@ -2,23 +2,39 @@ package com.example.surfingpatrol;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.view.ViewCompat;
+import android.util.Size;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.List;
 
-public class ListAdapter extends ArrayAdapter<Item> {
+public class ListAdapter extends ArrayAdapter<WaveItem> {
 
     private int resourceLayout;
     private Context mContext;
 
-    public ListAdapter(Context context, int resource, List<Item> items) {
+    public ListAdapter(Context context, int resource, List<WaveItem> items) {
         super(context, resource, items);
         this.resourceLayout = resource;
         this.mContext = context;
+    }
+
+    private int generateUniqueId(){
+        int id = 0;
+        try {
+            id = ViewCompat.generateViewId();
+        }catch (Throwable err){
+            id = View.generateViewId();
+        }
+        return id;
     }
 
     @Override
@@ -32,29 +48,30 @@ public class ListAdapter extends ArrayAdapter<Item> {
             v = vi.inflate(resourceLayout, null);
         }
 
-        Item p = getItem(position);
+        WaveItem p = getItem(position);
 
         if (p != null) {
-            TextView date = (TextView) v.findViewById(R.id.date);
-            TextView hour = (TextView) v.findViewById(R.id.six_am_time);
-            TextView height = (TextView) v.findViewById(R.id.six_am_height);
-            TextView period = (TextView) v.findViewById(R.id.six_am_period);
-            TextView description = (TextView) v.findViewById(R.id.six_am_desc);
-/*            TextView hour = (TextView) v.findViewById(R.id.six_am_time);
-            TextView height = (TextView) v.findViewById(R.id.six_am_height);
-            TextView period = (TextView) v.findViewById(R.id.six_am_period);
-            TextView description = (TextView) v.findViewById(R.id.six_am_desc);
-            TextView hour = (TextView) v.findViewById(R.id.six_am_time);
-            TextView height = (TextView) v.findViewById(R.id.six_am_height);
-            TextView period = (TextView) v.findViewById(R.id.six_am_period);
-            TextView description = (TextView) v.findViewById(R.id.six_am_desc);*/
-/*            if (tt1 != null) {
-                tt1.setText(""+p.);
-            }
+            for(int i = 0; i < p.get_wave_items().length; i++){
+                TableRow table_row = LayoutInflater.from(v.getContext()).inflate(R.layout.wave_item_row, v.findViewById(R.id.table)).findViewById(R.id.row);
+                table_row.setId(generateUniqueId());
+                TextView hour = (TextView) v.findViewById(R.id.hour);
+                TextView height = (TextView) v.findViewById(R.id.height);
+                TextView period = (TextView) v.findViewById(R.id.period);
+                TextView description = (TextView) v.findViewById(R.id.description);
+                hour.setText(p.get_wave_items()[i].get_hour());
+                height.setText(p.get_wave_items()[i].get_height());
+                period.setText(p.get_wave_items()[i].get_period());
+                description.setText(p.get_wave_items()[i].get_description());
+                hour.setId(generateUniqueId());
+                height.setId(generateUniqueId());
+                period.setId(generateUniqueId());
+                description.setId(generateUniqueId());
 
-            if (tt2 != null) {
-                tt2.setText(""+position);
-            }*/
+            }
+            TextView date = (TextView) v.findViewById(R.id.date);
+            if (date != null) {
+                date.setText(p.get_date());
+            }
 
         }
 

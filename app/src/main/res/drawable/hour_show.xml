@@ -2,11 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle" >
-            <padding
-                android:bottom="2dp"
-                android:left="10dp"
-                android:right="5dp"
-                android:top="4dp" />
+
             <solid android:color="@color/text_inp_login" />
             <stroke android:color="@color/text_inp_login_border" android:width="2dp" />
         </shape>
