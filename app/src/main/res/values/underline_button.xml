@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="your_string_here"><u>Login</u></string>
+    <string name="login_string"><u>Login</u></string>
+    <string name="signup_string"><u>Signup</u></string>
 </resources>

@@ -69,7 +69,7 @@
         android:width="190dp"
         android:height="50dp"
         android:background="@drawable/custom_login_button"
-        android:text="@string/your_string_here"
+        android:text="@string/login_string"
         android:textColor="#E6E6E6"
         android:textSize="18sp"
         android:textStyle="bold" />

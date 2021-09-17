@@ -7,7 +7,7 @@
     android:background="#E2222222"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".Login">
+    tools:context=".Register">
 
     <TextView
         android:id="@+id/title"
@@ -21,21 +21,51 @@
         android:textStyle="normal" />
 
     <TextView
-        android:id="@+id/loginTitle"
+        android:id="@+id/signup_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
         android:gravity="center_horizontal"
-        android:text="Login"
+        android:text="Register"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="350dp"
+        android:height="300dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="Full Name"
+        android:inputType="textPersonName"
+        android:textColor="#E6E6E6"
+        android:textColorHint="#E6E6E6"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="350dp"
+        android:height="300dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:textColor="#E6E6E6"
+        android:textColorHint="#E6E6E6"
+        android:textSize="17sp" />
+
+    <EditText
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="40dp"
         android:width="350dp"
         android:height="300dp"
         android:background="@drawable/custom_input"
@@ -50,7 +80,7 @@
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:width="350dp"
         android:height="300dp"
         android:background="@drawable/custom_input"
@@ -62,14 +92,14 @@
         android:textSize="17sp" />
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/signup_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:width="190dp"
         android:height="50dp"
         android:background="@drawable/custom_login_button"
-        android:text="@string/login_string"
+        android:text="@string/signup_string"
         android:textColor="#E6E6E6"
         android:textSize="18sp"
         android:textStyle="bold" />
