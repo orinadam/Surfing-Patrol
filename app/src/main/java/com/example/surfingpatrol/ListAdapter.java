@@ -46,11 +46,30 @@ public class ListAdapter extends ArrayAdapter<WaveItem> {
             LayoutInflater vi;
             vi = LayoutInflater.from(mContext);
             v = vi.inflate(resourceLayout, null);
+            WaveItem p = getItem(position);
+            for(int i = 0; i < 3; i++) {
+                TableRow table_row = LayoutInflater.from(v.getContext()).inflate(R.layout.wave_item_row, v.findViewById(R.id.table)).findViewById(R.id.row);
+                table_row.setId(generateUniqueId());
+                TextView hour = (TextView) v.findViewById(R.id.hour);
+                TextView height = (TextView) v.findViewById(R.id.height);
+                TextView period = (TextView) v.findViewById(R.id.period);
+                TextView description = (TextView) v.findViewById(R.id.description);
+                hour.setText(p.get_wave_items()[i].get_hour());
+                height.setText(p.get_wave_items()[i].get_height());
+                period.setText(p.get_wave_items()[i].get_period());
+                description.setText(p.get_wave_items()[i].get_description());
+                hour.setId(generateUniqueId());
+                height.setId(generateUniqueId());
+                period.setId(generateUniqueId());
+                description.setId(generateUniqueId());
+                TextView date = (TextView) v.findViewById(R.id.date);
+                if (date != null) {
+                    date.setText(p.get_date());
+                }
+            }
         }
 
-        WaveItem p = getItem(position);
-
-        if (p != null) {
+        /*if (p != null) {
             for(int i = 0; i < p.get_wave_items().length; i++){
                 TableRow table_row = LayoutInflater.from(v.getContext()).inflate(R.layout.wave_item_row, v.findViewById(R.id.table)).findViewById(R.id.row);
                 table_row.setId(generateUniqueId());
@@ -72,8 +91,8 @@ public class ListAdapter extends ArrayAdapter<WaveItem> {
             if (date != null) {
                 date.setText(p.get_date());
             }
-
-        }
+*/
+       // }
 
         return v;
     }
