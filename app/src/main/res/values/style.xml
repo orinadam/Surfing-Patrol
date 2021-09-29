@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextLabelDummy" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="colorAccent">@color/black</item>
+        <item name="android:textColorHint">@color/purple_200</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxStrokeWidth">10dp</item>
+    </style>
+    <style name="CounterStyle" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">14sp</item>
+        <!--other parameters that you want to change -->
+    </style>
+</resources>

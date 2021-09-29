@@ -1,20 +1,19 @@
 package com.example.surfingpatrol;
 
-import android.content.ClipData;
 import android.content.Context;
-import android.graphics.Color;
-import android.support.v4.view.ViewCompat;
-import android.util.Size;
+
+import androidx.core.view.ViewCompat;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.List;
+
+
 
 public class ListAdapter extends ArrayAdapter<WaveItem> {
 
@@ -32,7 +31,7 @@ public class ListAdapter extends ArrayAdapter<WaveItem> {
         try {
             id = ViewCompat.generateViewId();
         }catch (Throwable err){
-            id = View.generateViewId();
+            //id = View.generateViewId();
         }
         return id;
     }

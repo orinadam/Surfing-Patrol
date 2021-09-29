@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "969991587113",
+    "project_id": "surfing-patrol",
+    "storage_bucket": "surfing-patrol.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969991587113:android:d941faf1557dcf77d8a338",
+        "android_client_info": {
+          "package_name": "com.example.surfingpatrol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969991587113-l34i8njkp5u0udvk8c65g9rh90inmgbf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2RZPUHnqJvUXgCIBMLI0IZ7zT7E4v1lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969991587113-l34i8njkp5u0udvk8c65g9rh90inmgbf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
