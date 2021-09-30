@@ -1,14 +1,23 @@
 package com.example.surfingpatrol;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.res.ColorStateList;
+import android.content.res.XmlResourceParser;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -19,6 +28,8 @@ public class Register extends AppCompatActivity {
     Button registerButton;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    boolean username_check_flag = true;
+    boolean email_check_flag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +43,12 @@ public class Register extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rootNode = FirebaseDatabase.getInstance();
+                reference = rootNode.getReference("users");
                 if(!validateName() | !validateUsername() | !validateEmail() | !validatePassword()){
                     return;
                 }
-                rootNode = FirebaseDatabase.getInstance();
-                reference = rootNode.getReference("users");
+
                 String name = regName.getEditText().getText().toString();
                 String username = regUsername.getEditText().getText().toString();
                 String email = regEmail.getEditText().getText().toString();
@@ -75,9 +87,36 @@ public class Register extends AppCompatActivity {
             return false;
         }
         else{
-            regUsername.setError(null);
-            regUsername.setErrorEnabled(false);
-            return true;
+            Query checkUser = reference.orderByChild("username").equalTo(val);
+            int colorInt = getResources().getColor(R.color.white);
+            ColorStateList csl = ColorStateList.valueOf(colorInt);
+            regUsername.setHelperText("Checking validity...");
+            regUsername.setHelperTextColor(csl);
+            checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.exists()){
+                        regUsername.setError("This username is already taken");
+                        username_check_flag = false;
+                        return;
+                    }
+                    else{
+                        regUsername.setHelperTextEnabled(false);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+            if(!username_check_flag) {
+                regUsername.setError(null);
+                regUsername.setErrorEnabled(false);
+                return true;
+            }
+            return false;
         }
     }
     private Boolean validateEmail(){
@@ -92,9 +131,36 @@ public class Register extends AppCompatActivity {
             return false;
         }
         else{
-            regEmail.setError(null);
-            regEmail.setErrorEnabled(false);
-            return true;
+            Query checkUser = reference.orderByChild("email").equalTo(val);
+            int colorInt = getResources().getColor(R.color.white);
+            ColorStateList csl = ColorStateList.valueOf(colorInt);
+            regEmail.setHelperText("Checking validity...");
+            regEmail.setHelperTextColor(csl);
+            checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.exists()){
+                        regEmail.setError("A user with this email already exists");
+                        email_check_flag = false;
+                        return;
+                    }
+                    else{
+                        regEmail.setHelperTextEnabled(false);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+            if(!email_check_flag) {
+                regEmail.setError(null);
+                regEmail.setErrorEnabled(false);
+                return true;
+            }
+            return false;
         }
     }
     private Boolean validatePassword(){
