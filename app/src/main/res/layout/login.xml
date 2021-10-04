@@ -29,37 +29,67 @@
         android:text="Login"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginBottom="50dp"/>
 
-    <EditText
-        android:id="@+id/email"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:width="350dp"
-        android:height="300dp"
-        android:background="@drawable/custom_input"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
-        android:textColor="#E6E6E6"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:textColorHint="#E6E6E6"
-        android:textSize="17sp" />
+        app:boxBackgroundColor="@color/text_inp_login"
+        app:boxStrokeColor="#BBBBBB"
+        app:boxStrokeWidth="20dp"
+        android:layout_marginTop="10dp"
+        android:theme="@style/TextInputLayoutStyle"
 
-    <EditText
-        android:id="@+id/password"
+        app:hintTextAppearance="@style/TextLabelDummy"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="30dp"
+            android:width="350dp"
+            android:height="300dp"
+            app:boxStrokeColor="#E6E6E6"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="#E6E6E6"
+            android:textColorHint="#E6E6E6"
+            android:textSize="17sp"></com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:width="350dp"
-        android:height="300dp"
-        android:background="@drawable/custom_input"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName"
-        android:textColor="#E6E6E6"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:textColorHint="#E6E6E6"
-        android:textSize="17sp" />
+        app:boxBackgroundColor="@color/text_inp_login"
+        app:boxStrokeColor="#BBBBBB"
+        app:boxStrokeWidth="20dp"
+        android:layout_marginTop="30dp"
+        android:theme="@style/TextInputLayoutStyle"
+        app:passwordToggleEnabled="true"
+        app:hintTextAppearance="@style/TextLabelDummy"
+        app:passwordToggleTint="@color/white"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="30dp"
+            android:width="350dp"
+            android:height="300dp"
+            app:boxStrokeColor="#E6E6E6"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="#E6E6E6"
+            android:textColorHint="#E6E6E6"
+            android:textSize="17sp"></com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/login_button"
