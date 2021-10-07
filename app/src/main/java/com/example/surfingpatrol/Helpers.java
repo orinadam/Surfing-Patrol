@@ -1,5 +1,9 @@
 package com.example.surfingpatrol;
 
+
+/**
+ *
+ */
 public class Helpers {
     public static String generateId(String username) {
         String id = "";

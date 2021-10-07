@@ -18,8 +18,9 @@ import com.google.firebase.database.ValueEventListener;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Login extends AppCompatActivity {
-    TextInputLayout loginUsername, loginPassword;
+public class LoginActivity extends AppCompatActivity {
+
+    private TextInputLayout loginUsername, loginPassword;
     Button loginButton;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -28,6 +29,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
         loginUsername = findViewById(R.id.login_username);
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
@@ -35,27 +37,36 @@ public class Login extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String loginUsernameText = loginUsername.getEditText().getText().toString();
                 String loginPasswordText = loginPassword.getEditText().getText().toString();
+
                 rootNode = FirebaseDatabase.getInstance();
                 reference = rootNode.getReference("users");
+
                 Query checkUser = reference.orderByChild("username").equalTo(loginUsernameText);
+
                 checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
                             loginUsername.setError(null);
                             loginUsername.setErrorEnabled(false);
+
                             String dbPassword = snapshot.child(Helpers.generateId(loginUsernameText)).child("password").getValue(String.class);
                             if(dbPassword.equals(loginPasswordText)){
+
                                 loginUsername.setError(null);
                                 loginUsername.setErrorEnabled(false);
+
                                 User user = new User(snapshot.child(Helpers.generateId(loginUsernameText)).child("name").getValue(String.class),
                                         snapshot.child(Helpers.generateId(loginUsernameText)).child("username").getValue(String.class),
                                         snapshot.child(Helpers.generateId(loginUsernameText)).child("email").getValue(String.class),
                                         snapshot.child(Helpers.generateId(loginUsernameText)).child("password").getValue(String.class));
+
                                 Intent intent = new Intent(getApplicationContext(), WavesScreen.class);
                                 intent.putExtra("user", user);
+
                                 startActivity(intent);
                             }
                             else{

@@ -3,7 +3,7 @@ package com.example.surfingpatrol;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    String name, username, email, password;
+    public String name, username, email, password;
 
     public User(){
 
