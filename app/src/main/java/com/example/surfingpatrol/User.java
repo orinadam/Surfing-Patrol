@@ -1,6 +1,8 @@
 package com.example.surfingpatrol;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     String name, username, email, password;
 
     public User(){
@@ -31,11 +33,6 @@ public class User {
     }
 
     public String generateId(){
-        String id = "";
-        for(int i = 0; i < username.length(); i++) {
-            id += "" + ((int)username.charAt(i));
-
-        }
-        return id;
+        return Helpers.generateId(username);
     }
 }
