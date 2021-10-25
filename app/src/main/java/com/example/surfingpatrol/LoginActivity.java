@@ -3,6 +3,7 @@ package com.example.surfingpatrol;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 String loginUsernameText = loginUsername.getEditText().getText().toString();
                 String loginPasswordText = loginPassword.getEditText().getText().toString();
@@ -75,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                         else{
+
                             loginUsername.setError("No such user exists");
                             loginUsername.requestFocus();
                         }

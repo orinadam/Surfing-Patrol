@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background">
+
+    <TextView
+        android:id="@+id/spot_name"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:text="Haifa- The Peak"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+/>
+
+    <TextView
+        android:id="@+id/spot_wave"
+        android:layout_width="5dp"
+        android:layout_height="40dp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:text="0.8-1.2m" />
+
+    <ImageView
+        android:id="@+id/sot_wave_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="-60dp"
+        app:srcCompat="@drawable/wave" />
+
+    <TextView
+        android:id="@+id/spot_wind"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="-20dp"
+        android:text="12-15 knots"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/spot_arrow_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="-60dp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/arrow" />
+
+</LinearLayout>
