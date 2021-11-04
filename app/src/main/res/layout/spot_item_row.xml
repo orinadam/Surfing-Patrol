@@ -53,7 +53,7 @@
             android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/sot_wave_image"
+        android:id="@+id/spot_wave_image"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginTop="7dp"

@@ -5,12 +5,14 @@ public class Spot {
     private String wave;
     private String wind_knots;
     private int direction;
+    private int temperature;
 
-    public Spot(String name, String wave, String wind_knots, int direction){
+    public Spot(String name, String wave, String wind_knots, int direction, int temperature){
         this.wave = wave;
         this.name = name;
         this.wind_knots = wind_knots;
         this.direction = direction;
+        this.temperature = temperature;
     }
 
     public int getDirection() {
@@ -28,4 +30,6 @@ public class Spot {
     public String getWind_knots() {
         return wind_knots;
     }
+
+    public int getTemperature() { return temperature; }
 }
