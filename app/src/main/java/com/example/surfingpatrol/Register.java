@@ -93,6 +93,7 @@ public class Register extends AppCompatActivity {
             ColorStateList csl = ColorStateList.valueOf(colorInt);
             regUsername.setHelperText("Checking validity...");
             regUsername.setHelperTextColor(csl);
+
             checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -113,6 +114,7 @@ public class Register extends AppCompatActivity {
 
                 }
             });
+
             if(!username_check_flag) {
                 regUsername.setError(null);
                 regUsername.setErrorEnabled(false);

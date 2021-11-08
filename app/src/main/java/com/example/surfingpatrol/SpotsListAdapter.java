@@ -37,8 +37,8 @@ public class SpotsListAdapter extends ArrayAdapter<Spot> {
         TextView wave = (TextView) rowView.findViewById(R.id.spot_wave);
 
         name.setText(spot.getName());
-        temperature.setText(spot.getTemperature());
-        wind.setText(spot.getWind_knots());
+        temperature.setText(spot.getTemperature() + "°");
+       wind.setText(spot.getWind_knots());
         wind_direction.setRotation((float)(spot.getDirection()));
         wave.setText(spot.getWave());
 
