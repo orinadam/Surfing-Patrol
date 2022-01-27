@@ -3,6 +3,7 @@ package com.example.surfingpatrol;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.XmlResourceParser;
 import android.graphics.Color;
@@ -46,46 +47,34 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
                 rootNode = FirebaseDatabase.getInstance();
                 reference = rootNode.getReference("users");
-                if(!validateName() | !validateUsername() | !validateEmail() | !validatePassword()){
-                    return;
-                }
-
-                String name = regName.getEditText().getText().toString();
-                String username = regUsername.getEditText().getText().toString();
-                String email = regEmail.getEditText().getText().toString();
-                String password = regPassword.getEditText().getText().toString();
-
-                User user = new User(name, username, email, password);
-
-                reference.child(user.generateId()).setValue(user);
+                validate();
             }
         });
+        return;
     }
-
-    private Boolean validateName(){
+    private void validate(){
+        validateName();
+    }
+    private void validateName(){
         String val = regName.getEditText().getText().toString();
         if(val.isEmpty()){
             regName.setError("Field cannot be empty");
-            return false;
         }
         else{
             regName.setError(null);
             regName.setErrorEnabled(false);
-            return true;
+            validatePassword();
         }
     }
-    private Boolean validateUsername(){
+    private void validateUsername(){
         String noWhiteSpaces = "^\\S*$";
         String val = regUsername.getEditText().getText().toString();
         if(val.isEmpty()){
             regUsername.setError("Field cannot be empty");
-            return false;
         }else if(val.length() >= 15){
             regUsername.setError("Username too long");
-            return false;
         }else if(!val.matches(noWhiteSpaces)){
             regUsername.setError("White spaces are not allowed");
-            return false;
         }
         else{
             Query checkUser = reference.orderByChild("username").equalTo(val);
@@ -100,10 +89,10 @@ public class Register extends AppCompatActivity {
                     if(snapshot.exists()){
                         regUsername.setError("This username is already taken");
                         username_check_flag = false;
-                        return;
                     }
                     else{
                         regUsername.setHelperTextEnabled(false);
+                        validateEmail();
                     }
 
                 }
@@ -115,24 +104,16 @@ public class Register extends AppCompatActivity {
                 }
             });
 
-            if(!username_check_flag) {
-                regUsername.setError(null);
-                regUsername.setErrorEnabled(false);
-                return true;
-            }
-            return false;
         }
     }
-    private Boolean validateEmail(){
+    private void validateEmail(){
         String val = regEmail.getEditText().getText().toString();
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if(val.isEmpty()){
             regEmail.setError("Field cannot be empty");
-            return false;
         }
         else if (!val.matches(emailPattern)){
             regEmail.setError("Invalid email address");
-            return false;
         }
         else{
             Query checkUser = reference.orderByChild("email").equalTo(val);
@@ -146,10 +127,10 @@ public class Register extends AppCompatActivity {
                     if(snapshot.exists()){
                         regEmail.setError("A user with this email already exists");
                         email_check_flag = false;
-                        return;
                     }
                     else{
                         regEmail.setHelperTextEnabled(false);
+                        valid();
                     }
 
                 }
@@ -159,29 +140,38 @@ public class Register extends AppCompatActivity {
 
                 }
             });
-            if(!email_check_flag) {
-                regEmail.setError(null);
-                regEmail.setErrorEnabled(false);
-                return true;
-            }
-            return false;
         }
     }
-    private Boolean validatePassword(){
+    private void validatePassword(){
         String val = regPassword.getEditText().getText().toString();
         String passwordVal = "^" + "(?=.*[A-Za-z])" + "(?=.*\\d)" + "[A-Za-z\\d]" + "{8,}" + "$";
         if(val.isEmpty()){
             regPassword.setError("Field cannot be empty");
-            return false;
         }
         else if (!val.matches(passwordVal)){
             regPassword.setError("Password is too weak");
-            return false;
         }
         else{
             regPassword.setError(null);
             regPassword.setErrorEnabled(false);
-            return true;
+            validateUsername();
         }
     }
+    private void valid()
+    {
+        String name = regName.getEditText().getText().toString();
+        String username = regUsername.getEditText().getText().toString();
+        String email = regEmail.getEditText().getText().toString();
+        String password = regPassword.getEditText().getText().toString();
+
+        User user = new User(name, username, email, password);
+
+        reference.child(user.generateId()).setValue(user);
+
+        Intent intent = new Intent(getApplicationContext(), WavesScreen.class);
+        intent.putExtra("user", user);
+
+        startActivity(intent);
+    }
 }
+
