@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E2222222"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    tools:context=".WindScreen">
     <TextView
         android:id="@+id/location"
         android:layout_width="wrap_content"
@@ -15,7 +16,7 @@
         android:textColor="#FFFFFF"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="-130dp"/>
 
     <LinearLayout
@@ -25,31 +26,31 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/wave_btn_temp"
+            android:id="@+id/wave_btn_wind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:text="Wave"
-            android:textColor="#7DC6D9"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:background="#00FFFFFF"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/wind_btn_temp"
+            android:id="@+id/wind_btn_wind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_weight="1"
             android:text="Wind"
             android:background="#00FFFFFF"
-            android:textColor="#FFFFFF"
+            android:textColor="#7DC6D9"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/temperature_btn_temp"
+            android:id="@+id/temperature_btn_wind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
@@ -60,51 +61,10 @@
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/water_temp_text"
+    <ListView
+        android:id="@+id/itemWindListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textColor="#FFFFFF"
+        android:layout_height="match_parent"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:text="Water Temperature" />
-
-    <TextView
-        android:id="@+id/water_temp"
-        android:layout_width="227dp"
-        android:layout_height="230dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/orange_circle"
-        android:text="24.3°"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="#FFFFFF"/>
-
-    <TextView
-        android:id="@+id/air_temp_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:text="Air Temperature" />
-
-    <TextView
-        android:id="@+id/air_temp"
-        android:layout_width="227dp"
-        android:layout_height="227dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/red_circle"
-        android:text="34.6°"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
         />
 </LinearLayout>
