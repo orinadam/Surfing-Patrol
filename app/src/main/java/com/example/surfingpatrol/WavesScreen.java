@@ -46,7 +46,7 @@ public class WavesScreen extends AppCompatActivity {
                     value.getValue();
 
                 }
-                Toast toast=Toast.makeText(getApplicationContext(),"Hello Javatpoint" + snapshot.getValue(),Toast.LENGTH_SHORT);
+                Toast toast=Toast.makeText(getApplicationContext(),"Hello " + snapshot.getValue(),Toast.LENGTH_SHORT);
                 toast.setMargin(50,50);
                 toast.show();
 

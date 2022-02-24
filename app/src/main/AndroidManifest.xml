@@ -12,19 +12,24 @@
         <activity android:name=".WindScreen">
 
         </activity>
-        <activity android:name=".SurfingSpots" />
-        <activity android:name=".Register">
+        <activity android:name=".SurfingSpots" >
 
         </activity>
-        <activity android:name=".WavesScreen" >
+        <activity android:name=".Register">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TemperatureScreen" />
+        <activity android:name=".WavesScreen" >
+
+        </activity>
+        <activity android:name=".TemperatureScreen" >
+
+        </activity>
         <activity android:name=".LoginActivity" >
+
 
         </activity>
 
