@@ -58,10 +58,10 @@ public class WindListAdapter extends ArrayAdapter<WindItem> {
                 ImageView direction = (ImageView) v.findViewById(R.id.direction);
                 TextView description = (TextView) v.findViewById(R.id.description);
 
-                hour.setText(p.get_wind_items()[i].get_hour());
-                strength.setText(p.get_wind_items()[i].get_strength());
-                direction.setRotation(Float.parseFloat(p.get_wind_items()[i].get_direction()));
-                description.setText(p.get_wind_items()[i].get_description());
+                hour.setText(p.get_wind_items().get(i).get_hour());
+                strength.setText(p.get_wind_items().get(i).get_strength());
+                direction.setRotation(Float.parseFloat(p.get_wind_items().get(i).get_direction()));
+                description.setText(p.get_wind_items().get(i).get_description());
 
                 hour.setId(generateUniqueId());
                 strength.setId(generateUniqueId());

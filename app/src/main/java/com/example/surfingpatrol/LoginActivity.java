@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                                         snapshot.child(Helpers.generateId(loginUsernameText)).child("email").getValue(String.class),
                                         snapshot.child(Helpers.generateId(loginUsernameText)).child("password").getValue(String.class));
 
-                                Intent intent = new Intent(getApplicationContext(), WavesScreen.class);
+                                Intent intent = new Intent(getApplicationContext(), SurfingSpots.class);
                                 intent.putExtra("user", user);
 
                                 startActivity(intent);

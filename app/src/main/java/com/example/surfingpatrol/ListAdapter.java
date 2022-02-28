@@ -57,10 +57,10 @@ public class ListAdapter extends ArrayAdapter<WaveItem> {
                 TextView period = (TextView) v.findViewById(R.id.period);
                 TextView description = (TextView) v.findViewById(R.id.description);
 
-                hour.setText(p.get_wave_items()[i].get_hour());
-                height.setText(p.get_wave_items()[i].get_height());
-                period.setText(p.get_wave_items()[i].get_period());
-                description.setText(p.get_wave_items()[i].get_description());
+                hour.setText(p.get_wave_items().get(i).get_hour());
+                height.setText(p.get_wave_items().get(i).get_height());
+                period.setText(p.get_wave_items().get(i).get_period());
+                description.setText(p.get_wave_items().get(i).get_description());
 
                 hour.setId(generateUniqueId());
                 height.setId(generateUniqueId());

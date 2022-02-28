@@ -47,52 +47,53 @@
 
          app:hintTextAppearance="@style/TextLabelDummy"
         >
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="30dp"
-            android:width="350dp"
-            android:height="300dp"
-            app:boxStrokeColor="#E6E6E6"
-            android:ems="10"
-            android:hint="Full Name"
-            android:inputType="textPersonName"
-            android:textColor="#E6E6E6"
-            android:textColorHint="#E6E6E6"
-            android:textSize="17sp"></com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
+
+         <com.google.android.material.textfield.TextInputEditText
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="30dp"
+             android:width="350dp"
+             android:height="300dp"
+             android:ems="10"
+             android:hint="Full Name"
+             android:inputType="textPersonName"
+             android:textColor="#E6E6E6"
+             android:textColorHint="#E6E6E6"
+             android:textSize="17sp"
+             app:boxStrokeColor="#E6E6E6"></com.google.android.material.textfield.TextInputEditText>
+     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/reg_username"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="10dp"
         android:textColorHint="#E6E6E6"
+        android:theme="@style/TextInputLayoutStyle"
         app:boxBackgroundColor="@color/text_inp_login"
         app:boxStrokeColor="#BBBBBB"
         app:boxStrokeWidth="20dp"
-        android:layout_marginTop="10dp"
-        android:theme="@style/TextInputLayoutStyle"
-        app:counterMaxLength="15"
         app:counterEnabled="true"
-        app:hintTextAppearance="@style/TextLabelDummy"
+        app:counterMaxLength="15"
         app:counterTextAppearance="@style/CounterStyle"
-        >
+        app:hintTextAppearance="@style/TextLabelDummy">
+
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:width="350dp"
             android:height="300dp"
-            app:boxStrokeColor="#E6E6E6"
             android:ems="10"
             android:hint="Username"
             android:inputType="textPersonName"
             android:textColor="#E6E6E6"
-
             android:textColorHint="#E6E6E6"
-            android:textSize="17sp"></com.google.android.material.textfield.TextInputEditText>
+
+            android:textSize="17sp"
+            app:boxStrokeColor="#E6E6E6"></com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

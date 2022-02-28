@@ -168,7 +168,7 @@ public class Register extends AppCompatActivity {
 
         reference.child(user.generateId()).setValue(user);
 
-        Intent intent = new Intent(getApplicationContext(), WavesScreen.class);
+        Intent intent = new Intent(getApplicationContext(), SurfingSpots.class);
         intent.putExtra("user", user);
 
         startActivity(intent);
