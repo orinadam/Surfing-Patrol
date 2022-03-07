@@ -11,6 +11,7 @@ public class WindItem {
     private String date;
     private ArrayList<SingleWindItem> wind_items;
 
+    public WindItem(){};
     public WindItem(String date, ArrayList<SingleWindItem> wind_items) {
         this.date = date;
         this.wind_items = wind_items;

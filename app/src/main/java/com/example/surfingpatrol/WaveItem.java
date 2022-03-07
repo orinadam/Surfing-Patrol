@@ -14,6 +14,8 @@ public class WaveItem {
         this.date = date;
         this.wave_items = wave_items;
     }
+
+    public WaveItem(){};
     public String get_date() {
         return date;
     }

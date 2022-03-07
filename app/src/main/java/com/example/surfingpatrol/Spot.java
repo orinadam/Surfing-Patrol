@@ -21,6 +21,8 @@ public class Spot {
         this.winds = winds;
     }
 
+    public Spot(){};
+
     public int getDirection() {
         return direction;
     }

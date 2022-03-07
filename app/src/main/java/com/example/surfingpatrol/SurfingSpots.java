@@ -21,6 +21,8 @@ public class SurfingSpots extends AppCompatActivity {
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    Spot spot;
+    ArrayList<Spot> spots;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,7 @@ public class SurfingSpots extends AppCompatActivity {
         winds.add(new WindItem("Thursday 16/09/2021", new ArrayList<>(Arrays.asList(new SingleWindItem( "6:00", "12 knots", "30", "High"), new SingleWindItem("12:00", "1.4-1.8m", "80","High Winds"),new SingleWindItem( "18:00", "1-1.3m", "140", "High Winds")))));
         winds.add(new WindItem("Thursday 16/09/2021", new ArrayList<>(Arrays.asList(new SingleWindItem( "6:00", "12 knots", "30", "High"), new SingleWindItem("12:00", "1.4-1.8m", "80","High Winds"),new SingleWindItem( "18:00", "1-1.3m", "140", "High Winds")))));*/
 
-        ArrayList<Spot> spots = new ArrayList<>();
+        spots = new ArrayList<>();
 
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("locations");
@@ -44,9 +46,12 @@ public class SurfingSpots extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 for (DataSnapshot value: snapshot.getChildren()) {
-                    value.getValue();
+                    spot = value.getValue(Spot.class);
+                    spots.add(spot);
 
                 }
+                SpotsListAdapter customAdapter = new SpotsListAdapter(SurfingSpots.this, spots);
+                spots_list.setAdapter(customAdapter);
 
             }
 
@@ -57,8 +62,7 @@ public class SurfingSpots extends AppCompatActivity {
         });
 
 
-        SpotsListAdapter customAdapter = new SpotsListAdapter(this, spots);
-        spots_list.setAdapter(customAdapter);
+
 
     }
 }
