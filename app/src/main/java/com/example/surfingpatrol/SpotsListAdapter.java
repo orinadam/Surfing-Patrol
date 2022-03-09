@@ -36,11 +36,11 @@ public class SpotsListAdapter extends ArrayAdapter<Spot> {
         ImageView wind_direction = (ImageView) rowView.findViewById(R.id.spot_arrow_image);
         TextView wave = (TextView) rowView.findViewById(R.id.spot_wave);
 
-        name.setText(spot.getName());
-        temperature.setText(spot.getTemperature() + "°");
-       wind.setText(spot.getWind_knots());
-        wind_direction.setRotation((float)(spot.getDirection()));
-        wave.setText(spot.getWave());
+        name.setText(spot.name);
+        temperature.setText(spot.temperature + "°");
+       wind.setText(spot.windKnots);
+        wind_direction.setRotation((float)(spot.direction));
+        wave.setText(spot.wave);
 
         return rowView;
 

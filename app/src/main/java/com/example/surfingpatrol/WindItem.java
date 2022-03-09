@@ -4,22 +4,24 @@ import android.view.View;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class WindItem {
+public class WindItem implements Serializable {
 
-    private String date;
-    private ArrayList<SingleWindItem> wind_items;
+    public String date;
+    public ArrayList<SingleWindItem> windItems;
 
     public WindItem(){};
     public WindItem(String date, ArrayList<SingleWindItem> wind_items) {
         this.date = date;
-        this.wind_items = wind_items;
+        this.windItems = wind_items;
     }
-    public String get_date() {
+/*    public String getDate() {
         return date;
     }
-    public ArrayList<SingleWindItem> get_wind_items() { return wind_items; }
+    public void setDate(String date) {this.date = date;}
+    public ArrayList<SingleWindItem> getWindItems() { return windItems; }
     public TableRow generate_wave_item(View v) {
         TableRow table_row = new TableRow(v.getContext());
         TextView txt = new TextView(v.getContext());
@@ -27,5 +29,5 @@ public class WindItem {
         txt.setText("hello");
         table_row.addView(txt);
         return table_row;
-    }
+    }*/
 }

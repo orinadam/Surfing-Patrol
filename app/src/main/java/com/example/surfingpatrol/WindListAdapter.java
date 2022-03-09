@@ -58,10 +58,10 @@ public class WindListAdapter extends ArrayAdapter<WindItem> {
                 ImageView direction = (ImageView) v.findViewById(R.id.direction);
                 TextView description = (TextView) v.findViewById(R.id.description);
 
-                hour.setText(p.get_wind_items().get(i).get_hour());
-                strength.setText(p.get_wind_items().get(i).get_strength());
-                direction.setRotation(Float.parseFloat(p.get_wind_items().get(i).get_direction()));
-                description.setText(p.get_wind_items().get(i).get_description());
+                hour.setText(p.windItems.get(i).hour);
+                strength.setText(p.windItems.get(i).strength);
+                direction.setRotation(Float.parseFloat(p.windItems.get(i).direction));
+                description.setText(p.windItems.get(i).description);
 
                 hour.setId(generateUniqueId());
                 strength.setId(generateUniqueId());
@@ -70,7 +70,7 @@ public class WindListAdapter extends ArrayAdapter<WindItem> {
 
                 TextView date = (TextView) v.findViewById(R.id.date);
                 if (date != null) {
-                    date.setText(p.get_date());
+                    date.setText(p.date);
                 }
             }
         }
