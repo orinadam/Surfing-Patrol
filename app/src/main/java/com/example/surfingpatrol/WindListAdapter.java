@@ -50,6 +50,7 @@ public class WindListAdapter extends ArrayAdapter<WindItem> {
             v = vi.inflate(resourceLayout, null);
             WindItem p = getItem(position);
             for(int i = 0; i < 3; i++) {
+
                 TableRow table_row = LayoutInflater.from(v.getContext()).inflate(R.layout.wind_item_row, v.findViewById(R.id.table)).findViewById(R.id.row);
                 table_row.setId(generateUniqueId());
 

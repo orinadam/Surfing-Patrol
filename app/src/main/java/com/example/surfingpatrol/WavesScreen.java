@@ -20,7 +20,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+/*
+    A class represents WaveScreen which shows list of waves on forecast
+* */
 public class WavesScreen extends AppCompatActivity {
 
     Button windBtn;
@@ -34,15 +36,18 @@ public class WavesScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waves_screen);
-        windBtn = (Button)findViewById(R.id.wind_btn_wave);
-        temperatureBtn = (Button)findViewById(R.id.temperature_btn_wave);
-        ListView wavesListView = (ListView) findViewById(R.id.itemWaveListView);
+
+        windBtn                 = (Button)findViewById(R.id.wind_btn_wave);
+        temperatureBtn          = (Button)findViewById(R.id.temperature_btn_wave);
+        ListView wavesListView  = (ListView) findViewById(R.id.itemWaveListView);
+
         spot = (Spot)getIntent().getExtras().get("spot");
         user = (User)getIntent().getExtras().get("user");
         //WaveItem[] items = {new WaveItem("Thursday 16/09/2021", new SingleWaveItem[]{ new SingleWaveItem( "6:00", "1-1.2m", "7-8s", "High"), new SingleWaveItem("12:00", "1.4-1.8m", "7-14s","High waves"),new SingleWaveItem( "18:00", "1-1.3m", "7-8s", "High waves")}), new WaveItem("Friday 17/09/2021", new SingleWaveItem[]{ new SingleWaveItem( "6:00", "0.6-1m", "5-6s", "Head"), new SingleWaveItem("12:00", "1.4-1.8m", "7-14s","High waves"),new SingleWaveItem( "18:00", "1-1.3m", "7-8s", "High waves")}), new WaveItem("Thursday 16/09/2021", new SingleWaveItem[]{ new SingleWaveItem( "6:00", "1-1.2m", "7-8s", "High"), new SingleWaveItem("12:00", "1.4-1.8m", "7-14s","High waves"),new SingleWaveItem( "18:00", "1-1.3m", "7-8s", "High waves")}), new WaveItem("Thursday 16/09/2021", new SingleWaveItem[]{ new SingleWaveItem( "6:00", "1-1.2m", "7-8s", "High"), new SingleWaveItem("12:00", "1.4-1.8m", "7-14s","High waves"),new SingleWaveItem( "18:00", "1-1.3m", "7-8s", "High waves")}), new WaveItem("Thursday 16/09/2021", new SingleWaveItem[]{ new SingleWaveItem( "6:00", "1-1.2m", "7-8s", "High"), new SingleWaveItem("12:00", "1.4-1.8m", "7-14s","High waves"),new SingleWaveItem( "18:00", "1-1.3m", "7-8s", "High waves")})};
 // get data from the table by the ListAdapter
       // ListAdapter customAdapter = new ListAdapter(this, R.layout.wave_item_list_row, Arrays.asList(items.clone()));
         //yourListView.setAdapter(customAdapter);
+
         List<WaveItem> waves = spot.waves;
         ListAdapter wavesAdapter = new ListAdapter(this, R.layout.wave_item_list_row, waves);
         wavesListView.setAdapter(wavesAdapter);

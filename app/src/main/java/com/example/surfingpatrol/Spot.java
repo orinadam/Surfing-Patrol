@@ -2,7 +2,9 @@ package com.example.surfingpatrol;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/*
+    Class which represents a surfing spots
+ */
 public class Spot implements Serializable {
     public String name;
     public String wave;

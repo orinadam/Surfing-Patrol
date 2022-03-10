@@ -2,6 +2,9 @@ package com.example.surfingpatrol;
 
 import java.io.Serializable;
 
+/*
+    A user in the app (saved on firebase)
+* */
 public class User implements Serializable {
     public String name, username, email, password;
 

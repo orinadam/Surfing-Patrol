@@ -38,7 +38,7 @@ public class TemperatureScreen extends AppCompatActivity {
         waterColor.setText(String.valueOf(spot.waterTemperature));
         airColor.setText(String.valueOf(spot.temperature));
 
-
+        // Matching color by temperature
         if(spot.temperature < 20)
             airColor.setBackground(getApplicationContext().getResources().getDrawable(R.drawable.green_circle));
         else if(spot.temperature < 28)
@@ -57,7 +57,7 @@ public class TemperatureScreen extends AppCompatActivity {
         spot = (Spot)getIntent().getExtras().get("spot");
         user = (User)getIntent().getExtras().get("user");
 
-        windBtn.setOnClickListener(new View.OnClickListener() {
+        windBtn.setOnClickListener(new View.OnClickListener() { //Intent to waveScreen
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), WindScreen.class);
@@ -67,7 +67,7 @@ public class TemperatureScreen extends AppCompatActivity {
             }
         });
 
-        waveBtn.setOnClickListener(new View.OnClickListener() {
+        waveBtn.setOnClickListener(new View.OnClickListener() { //Intent to temperatureScreen
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), WavesScreen.class);

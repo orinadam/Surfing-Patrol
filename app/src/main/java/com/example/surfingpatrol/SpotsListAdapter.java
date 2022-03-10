@@ -24,7 +24,9 @@ public class SpotsListAdapter extends ArrayAdapter<Spot> {
         this.spots = spots;
 
     }
-
+    /*
+        ListAdapter for spots which show each spot using the same view
+    * */
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater=LayoutInflater.from(mContext);
         View rowView=inflater.inflate(R.layout.spot_item_row, null);

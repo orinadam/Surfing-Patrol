@@ -1,7 +1,9 @@
 package com.example.surfingpatrol;
 
 import java.io.Serializable;
-
+/*
+    Class which represents a single wind Item for everyday
+ */
 public class SingleWindItem implements Serializable {
     public String hour;
     public String strength;

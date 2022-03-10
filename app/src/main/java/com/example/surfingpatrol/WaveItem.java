@@ -7,6 +7,9 @@ import android.widget.TextView;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/*
+    A class represents WaveItem on the list
+* */
 public class WaveItem implements Serializable {
     public String date;
     public ArrayList<SingleWaveItem> waveItems;

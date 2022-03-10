@@ -56,7 +56,7 @@ public class Register extends AppCompatActivity {
         validateName();
     }
     private void validateName(){
-        String val = regName.getEditText().getText().toString();
+        String val = regName.getEditText().getText().toString(); // Checks name validity
         if(val.isEmpty()){
             regName.setError("Field cannot be empty");
         }
@@ -66,6 +66,10 @@ public class Register extends AppCompatActivity {
             validatePassword();
         }
     }
+
+    /*
+    Checks username validity using regex pattern and checking with firebase
+    * */
     private void validateUsername(){
         String noWhiteSpaces = "^\\S*$";
         String val = regUsername.getEditText().getText().toString();
@@ -106,6 +110,10 @@ public class Register extends AppCompatActivity {
 
         }
     }
+
+    /**
+     *  validating email using regex
+     */
     private void validateEmail(){
         String val = regEmail.getEditText().getText().toString();
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -166,7 +174,7 @@ public class Register extends AppCompatActivity {
 
         User user = new User(name, username, email, password);
 
-        reference.child(user.generateId()).setValue(user);
+        reference.child(user.generateId()).setValue(user); // Saving user into firebase
 
         Intent intent = new Intent(getApplicationContext(), SurfingSpots.class);
         intent.putExtra("user", user);

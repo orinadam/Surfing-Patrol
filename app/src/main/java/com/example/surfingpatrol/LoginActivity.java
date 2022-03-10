@@ -25,7 +25,9 @@ public class LoginActivity extends AppCompatActivity {
     Button loginButton;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
-
+    /*
+        Login screen the function is called on screens loading
+    * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +42,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                String loginUsernameText = loginUsername.getEditText().getText().toString();
-                String loginPasswordText = loginPassword.getEditText().getText().toString();
+                String loginUsernameText = loginUsername.getEditText().getText().toString(); //Getting username
+                String loginPasswordText = loginPassword.getEditText().getText().toString(); //Getting password
 
                 rootNode = FirebaseDatabase.getInstance();
                 reference = rootNode.getReference("users");
@@ -64,10 +66,10 @@ public class LoginActivity extends AppCompatActivity {
                                 User user = new User(snapshot.child(Helpers.generateId(loginUsernameText)).child("name").getValue(String.class),
                                         snapshot.child(Helpers.generateId(loginUsernameText)).child("username").getValue(String.class),
                                         snapshot.child(Helpers.generateId(loginUsernameText)).child("email").getValue(String.class),
-                                        snapshot.child(Helpers.generateId(loginUsernameText)).child("password").getValue(String.class));
+                                        snapshot.child(Helpers.generateId(loginUsernameText)).child("password").getValue(String.class)); // Creates a user
 
                                 Intent intent = new Intent(getApplicationContext(), SurfingSpots.class);
-                                intent.putExtra("user", user);
+                                intent.putExtra("user", user); // Move user to waves screen
 
                                 startActivity(intent);
                             }
