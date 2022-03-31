@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -14,7 +15,7 @@ import org.w3c.dom.Text;
 public class TemperatureScreen extends AppCompatActivity {
     Button windBtn;
     Button waveBtn;
-
+    ImageButton goBackTemp;
 
     TextView airColor;
     TextView waterColor;
@@ -34,6 +35,8 @@ public class TemperatureScreen extends AppCompatActivity {
 
         airColor = (TextView)findViewById(R.id.air_temp);
         waterColor = (TextView)findViewById(R.id.water_temp);
+
+        goBackTemp = (ImageButton)findViewById(R.id.temp_go_back);
 
         waterColor.setText(String.valueOf(spot.waterTemperature));
         airColor.setText(String.valueOf(spot.temperature));
@@ -63,6 +66,7 @@ public class TemperatureScreen extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), WindScreen.class);
                 intent.putExtra("spot", spot);
                 intent.putExtra("user", user);
+                finish();
                 startActivity(intent);
             }
         });
@@ -73,7 +77,15 @@ public class TemperatureScreen extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), WavesScreen.class);
                 intent.putExtra("spot", spot);
                 intent.putExtra("user", user);
+                finish();
                 startActivity(intent);
+            }
+        });
+
+        goBackTemp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,11 +27,13 @@ import java.util.List;
 public class WavesScreen extends AppCompatActivity {
 
     Button windBtn;
+    ImageButton goBackWave;
     Button temperatureBtn;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     Spot spot;
     User user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class WavesScreen extends AppCompatActivity {
 
         windBtn                 = (Button)findViewById(R.id.wind_btn_wave);
         temperatureBtn          = (Button)findViewById(R.id.temperature_btn_wave);
+        goBackWave              = (ImageButton) findViewById(R.id.wave_go_back);
         ListView wavesListView  = (ListView) findViewById(R.id.itemWaveListView);
 
         spot = (Spot)getIntent().getExtras().get("spot");
@@ -58,6 +62,7 @@ public class WavesScreen extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), WindScreen.class);
                 intent.putExtra("spot", spot);
                 intent.putExtra("user", user);
+                finish();
                 startActivity(intent);
             }
         });
@@ -68,7 +73,15 @@ public class WavesScreen extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), TemperatureScreen.class);
                 intent.putExtra("spot", spot);
                 intent.putExtra("user", user);
+                finish();
                 startActivity(intent);
+            }
+        });
+
+        goBackWave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

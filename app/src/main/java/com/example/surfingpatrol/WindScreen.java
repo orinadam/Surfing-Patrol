@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.Arrays;
@@ -13,6 +14,8 @@ import java.util.Arrays;
 public class WindScreen extends AppCompatActivity {
     Button waveBtn;
     Button temperatureBtn;
+
+    ImageButton goBackWind;
 
     Spot spot;
     User user;
@@ -24,6 +27,7 @@ public class WindScreen extends AppCompatActivity {
         waveBtn = (Button) findViewById(R.id.wave_btn_wind);
         temperatureBtn = (Button) findViewById(R.id.temperature_btn_wind);
         ListView windList = (ListView) findViewById(R.id.itemWindListView);
+        goBackWind        = (ImageButton)findViewById(R.id.wind_go_back);
 
         spot = (Spot)getIntent().getExtras().get("spot");
         user = (User)getIntent().getExtras().get("user");
@@ -38,6 +42,7 @@ public class WindScreen extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), WavesScreen.class);
                 intent.putExtra("spot", spot);
                 intent.putExtra("user", user);
+                finish();
                 startActivity(intent);
             }
         });
@@ -48,7 +53,15 @@ public class WindScreen extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), TemperatureScreen.class);
                 intent.putExtra("spot", spot);
                 intent.putExtra("user", user);
+                finish();
                 startActivity(intent);
+            }
+        });
+
+        goBackWind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
