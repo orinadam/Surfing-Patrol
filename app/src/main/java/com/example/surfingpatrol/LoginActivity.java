@@ -22,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivity extends AppCompatActivity {
 
     private TextInputLayout loginUsername, loginPassword;
-    Button loginButton;
+    Button loginButton, regButton;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     /*
@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         loginUsername = findViewById(R.id.login_username);
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
+        regButton = findViewById(R.id.reg_btn);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +93,14 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 
+
+            }
+        });
+        regButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_reg = new Intent(getApplicationContext(), Register.class);
+                startActivity(intent_reg);
 
             }
         });

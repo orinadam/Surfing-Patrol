@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#656565"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Are you sure you want to logout?"
+        android:textColor="#BFCCCCCC"
+        android:textSize="24sp"
+        android:layout_marginBottom="18dp"
+        android:textStyle="normal" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/exit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="60dp"
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:textColor="#DDDDDD"
+            android:textSize="14sp"
+            android:layout_marginBottom="14dp"
+            android:background="#FC6B69"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/stay_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="30dp"
+            android:text="Stay"
+            android:textAllCaps="false"
+            android:textColor="#DDDDDD"
+            android:textSize="14sp"
+            android:layout_marginBottom="14dp"
+            android:background="#5BCA40"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

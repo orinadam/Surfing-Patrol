@@ -9,30 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SurfingPatrol">
-        <activity android:name=".WindScreen">
+        <activity android:name=".AddImage"></activity>
+        <activity android:name=".Gallery">
+
 
         </activity>
-        <activity android:name=".SurfingSpots" >
-
-        </activity>
-        <activity android:name=".Register">
-
-        </activity>
-        <activity android:name=".WavesScreen" >
-
-        </activity>
-        <activity android:name=".TemperatureScreen" >
-
-        </activity>
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".WindScreen" />
+        <activity android:name=".SurfingSpots"></activity>
+        <activity android:name=".Register" />
+        <activity android:name=".WavesScreen" />
+        <activity android:name=".TemperatureScreen" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
     </application>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
 </manifest>

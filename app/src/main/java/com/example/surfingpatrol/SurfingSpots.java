@@ -2,12 +2,18 @@ package com.example.surfingpatrol;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -28,6 +34,8 @@ public class SurfingSpots extends AppCompatActivity {
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+
+    ImageButton logout_btn;
     Spot spot;
     ArrayList<Spot> spots;
     ListView spots_list;
@@ -40,23 +48,10 @@ public class SurfingSpots extends AppCompatActivity {
         setContentView(R.layout.activity_surfing_spots);
 
         spots_list = (ListView)findViewById(R.id.spots_list);
+        logout_btn = (ImageButton) findViewById(R.id.spots_logout);
+
         user = (User)getIntent().getExtras().get("user");
 
-/*        ArrayList<WaveItem> waves = new ArrayList<>();
-        waves.add(new WaveItem("Thursday 10/03/2022", new ArrayList<>(Arrays.asList(new SingleWaveItem( "6:00", "1-1.2m", "7-8s", "High"), new SingleWaveItem("12:00", "1.4-1.8m", "7-14s","High waves"),new SingleWaveItem( "18:00", "1-1.3m", "7-8s", "High waves")))));
-        waves.add(new WaveItem("Friday 11/03/2022", new ArrayList<>(Arrays.asList(new SingleWaveItem( "6:00", "1.1-1.4m", "7-8s", "High"), new SingleWaveItem("12:00", "1.4-1.8m", "7-14s","High waves"),new SingleWaveItem( "18:00", "1-1.3m", "7-8s", "High waves")))));
-        waves.add(new WaveItem("Saturday 12/03/2022", new ArrayList<>(Arrays.asList(new SingleWaveItem( "6:00", "0.7-0.9m", "7-8s", "Normal"), new SingleWaveItem("12:00", "1.4-1.8m", "7-14s","High waves"),new SingleWaveItem( "18:00", "1-1.3m", "7-8s", "High waves")))));
-        waves.add(new WaveItem("Sunday 13/03/2022", new ArrayList<>(Arrays.asList(new SingleWaveItem( "6:00", "1-1.2m", "7-8s", "High"), new SingleWaveItem("12:00", "1.4-1.8m", "7-14s","High waves"),new SingleWaveItem( "18:00", "1-1.3m", "7-8s", "High waves")))));
-        waves.add(new WaveItem("Monday 14/03/2022", new ArrayList<>(Arrays.asList(new SingleWaveItem( "6:00", "1-1.2m", "7-8s", "High"), new SingleWaveItem("12:00", "1.4-1.8m", "7-14s","High waves"),new SingleWaveItem( "18:00", "1-1.3m", "7-8s", "High waves")))));
-
-        ArrayList<WindItem> winds = new ArrayList<>();
-        winds.add(new WindItem("Thursday 10/03/2022", new ArrayList<>(Arrays.asList(new SingleWindItem( "6:00", "12 knots", "30", "High"), new SingleWindItem("12:00", "1.4-1.8m", "80","High Winds"),new SingleWindItem( "18:00", "1-1.3m", "140", "High Winds")))));
-        winds.add(new WindItem("Friday 11/03/2022", new ArrayList<>(Arrays.asList(new SingleWindItem( "6:00", "12 knots", "30", "High"), new SingleWindItem("12:00", "1.4-1.8m", "80","High Winds"),new SingleWindItem( "18:00", "1-1.3m", "140", "High Winds")))));
-        winds.add(new WindItem("Saturday 12/03/2022", new ArrayList<>(Arrays.asList(new SingleWindItem( "6:00", "12 knots", "30", "High"), new SingleWindItem("12:00", "1.4-1.8m", "80","High Winds"),new SingleWindItem( "18:00", "1-1.3m", "140", "High Winds")))));
-        winds.add(new WindItem("Sunday 13/03/2022", new ArrayList<>(Arrays.asList(new SingleWindItem( "6:00", "12 knots", "30", "High"), new SingleWindItem("12:00", "1.4-1.8m", "80","High Winds"),new SingleWindItem( "18:00", "1-1.3m", "140", "High Winds")))));
-        winds.add(new WindItem("Monday 14/03/2022", new ArrayList<>(Arrays.asList(new SingleWindItem( "6:00", "12 knots", "30", "High"), new SingleWindItem("12:00", "1.4-1.8m", "80","High Winds"),new SingleWindItem( "18:00", "1-1.3m", "140", "High Winds")))));
-
-        spot = new Spot("Sokolov", "1.5m", "4knots", 220, 18, 16, waves, winds);*/
         spots = new ArrayList<>();
 
         rootNode = FirebaseDatabase.getInstance();
@@ -123,6 +118,47 @@ public class SurfingSpots extends AppCompatActivity {
 
         });
 
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // showDialog();
+                Intent intent = new Intent(getApplicationContext(), Gallery.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+
+
+            }
+        });
+
 
     }
+    void showDialog()
+    {
+        final Dialog dialog = new Dialog(SurfingSpots.this);
+        //We have added a title in the custom layout. So let's disable the default title.
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //The user will be able to cancel the dialog bu clicking anywhere outside the dialog.
+        dialog.setCancelable(true);
+        //Mention the name of the layout of your custom dialog.
+        dialog.setContentView(R.layout.exit_dialog);
+        Button dialog_logout_btn = dialog.findViewById(R.id.exit_btn);
+        Button dialog_stay = dialog.findViewById(R.id.stay_btn);
+        dialog_logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+        dialog_stay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+
+            }
+        });
+        dialog.show();
+    }
+
 }
