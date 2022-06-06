@@ -11,16 +11,21 @@ import android.widget.ArrayAdapter;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
 /**
- *
+ * Waves list custom asapter
+ * Arranges all waves item and shows them in a listview
+ * creates a viewable wave forecast
  */
 public class ListAdapter extends ArrayAdapter<WaveItem> {
 
     private int resourceLayout;
     private Context mContext;
+
 
     public ListAdapter(Context context, int resource, List<WaveItem> items) {
         super(context, resource, items);
@@ -46,12 +51,16 @@ public class ListAdapter extends ArrayAdapter<WaveItem> {
 
         View v = convertView;
 
+
         if (v == null) {
+
             LayoutInflater vi;
             vi = LayoutInflater.from(mContext);
             v = vi.inflate(resourceLayout, null);
+
             WaveItem p = getItem(position);
             for(int i = 0; i < 3; i++) {
+
                 TableRow table_row = LayoutInflater.from(v.getContext()).inflate(R.layout.wave_item_row, v.findViewById(R.id.table)).findViewById(R.id.row);
                 table_row.setId(generateUniqueId());
 
@@ -75,6 +84,7 @@ public class ListAdapter extends ArrayAdapter<WaveItem> {
                     date.setText(p.date);
                 }
             }
+
         }
 
 

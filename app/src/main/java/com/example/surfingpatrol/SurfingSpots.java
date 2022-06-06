@@ -1,5 +1,6 @@
 package com.example.surfingpatrol;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -9,6 +10,8 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -30,12 +33,17 @@ import java.util.Arrays;
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.valueOf;
 
+/**
+ * Spots screen
+ * Home screen wich includes list of all spots and some other things
+ */
+
 public class SurfingSpots extends AppCompatActivity {
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
-    ImageButton logout_btn;
+    ImageButton logout_btn, view_posts_btn;
     Spot spot;
     ArrayList<Spot> spots;
     ListView spots_list;
@@ -49,6 +57,7 @@ public class SurfingSpots extends AppCompatActivity {
 
         spots_list = (ListView)findViewById(R.id.spots_list);
         logout_btn = (ImageButton) findViewById(R.id.spots_logout);
+        view_posts_btn = (ImageButton) findViewById(R.id.view_posts);
 
         user = (User)getIntent().getExtras().get("user");
 
@@ -56,13 +65,11 @@ public class SurfingSpots extends AppCompatActivity {
 
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("locations");
-        //reference.child("Sokolov").setValue(spot);
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) { //Getting spots from firebase
                 for (DataSnapshot value: snapshot.getChildren()) {
-                    //spot = new Spot(value.child("name").toString(), value.child("wave").toString(), value.child("windKnots").toString(), valueOf(value.child("direction").toString()), valueOf(value.child("temperature").toString()), );
 
                     ArrayList<WaveItem> waves_list = new ArrayList<>();
                     ArrayList<SingleWaveItem> single_waves = new ArrayList<>();
@@ -73,6 +80,7 @@ public class SurfingSpots extends AppCompatActivity {
                             single_waves.add(new SingleWaveItem(single_wave_val.child("hour").getValue().toString(), single_wave_val.child("height").getValue().toString(), single_wave_val.child("period").getValue().toString(), single_wave_val.child("description").getValue().toString()));
                         }
                         waves_list.add(new WaveItem(date, single_waves));
+                        single_waves = new ArrayList<>();
 
                     }
 
@@ -87,6 +95,7 @@ public class SurfingSpots extends AppCompatActivity {
                         }
 
                         winds_list.add(new WindItem(date, single_winds));
+                        single_winds = new ArrayList<>();
 
                     }
                     spot = new Spot(value.child("name").getValue().toString(), value.child("wave").getValue().toString(), value.child("windKnots").getValue().toString(), value.child("direction").getValue(Integer.class), value.child("temperature").getValue(Integer.class), value.child("waterTemperature").getValue(Integer.class), waves_list, winds_list);
@@ -122,17 +131,54 @@ public class SurfingSpots extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // showDialog();
+                showDialog();
+
+
+
+            }
+        });
+
+        view_posts_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Gallery.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
-
 
             }
         });
 
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.view_posts:
+                Intent intent = new Intent(getApplicationContext(), Gallery.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                break;
+            case R.id.logout_item:
+                showDialog();
+                break;
+            case R.id.exit_item:
+                finishAffinity();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     void showDialog()
     {
         final Dialog dialog = new Dialog(SurfingSpots.this);
@@ -142,19 +188,21 @@ public class SurfingSpots extends AppCompatActivity {
         dialog.setCancelable(true);
         //Mention the name of the layout of your custom dialog.
         dialog.setContentView(R.layout.exit_dialog);
+
         Button dialog_logout_btn = dialog.findViewById(R.id.exit_btn);
         Button dialog_stay = dialog.findViewById(R.id.stay_btn);
+
         dialog_logout_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.dismiss();
+                dialog.dismiss(); // Logout
                 finish();
             }
         });
         dialog_stay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.dismiss();
+                dialog.dismiss(); // Stay
 
             }
         });

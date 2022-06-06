@@ -1,5 +1,10 @@
 package com.example.surfingpatrol;
 
+
+/**
+* Class represents a post in the application
+ */
+
 public class ImageItem {
     String publisher;
     String beach_name;

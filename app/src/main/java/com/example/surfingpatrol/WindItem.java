@@ -7,6 +7,10 @@ import android.widget.TextView;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * A class represents WindItem on the list
+ */
+
 public class WindItem implements Serializable {
 
     public String date;

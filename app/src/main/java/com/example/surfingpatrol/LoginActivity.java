@@ -19,6 +19,12 @@ import com.google.firebase.database.ValueEventListener;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Login Screen
+ * Login to the app if you already have a user
+ * if not' you can signup to the application
+ * makes some validations using regex and stuff
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private TextInputLayout loginUsername, loginPassword;

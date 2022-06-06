@@ -5,20 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Gallery"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="#E2222222"
     >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="10dp"
+        android:text="Posts"
+        android:textColor="#BFCCCCCC"
+        android:textSize="38sp"
+        android:textStyle="normal" />
+
     <ListView
         android:id="@+id/images_lv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="520dp"
+        android:layout_marginLeft="7dp"
         android:layout_marginBottom="32dp"
         />
     <Button
         android:id="@+id/add_image_screen"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
+        android:width="190dp"
+        android:height="50dp"
+        android:background="@drawable/custom_login_button"
+        android:text="Create a post"
+        android:textColor="#E6E6E6"
         android:textSize="18sp"
-        android:layout_marginTop="-37dp"
-        android:text="Add image" />
+        android:textStyle="bold" />
 
 </LinearLayout>

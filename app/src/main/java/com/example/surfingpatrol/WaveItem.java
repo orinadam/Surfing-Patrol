@@ -7,9 +7,9 @@ import android.widget.TextView;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/*
-    A class represents WaveItem on the list
-* */
+/**
+   * A class represents WaveItem on the list
+*/
 public class WaveItem implements Serializable {
     public String date;
     public ArrayList<SingleWaveItem> waveItems;
@@ -20,17 +20,5 @@ public class WaveItem implements Serializable {
     }
 
     public WaveItem(){};
-    /*public String getDate() {
-        return date;
-    }
-    public ArrayList<SingleWaveItem> getWaveItems() { return waveItems; }
-    public TableRow generate_wave_item(View v) {
-        TableRow table_row = new TableRow(v.getContext());
-        TextView txt = new TextView(v.getContext());
-        txt.setTextColor(255);
-        txt.setText("hello");
-        table_row.addView(txt);
-        return table_row;
-    }*/
 
 }

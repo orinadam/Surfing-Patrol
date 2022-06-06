@@ -2,7 +2,7 @@ package com.example.surfingpatrol;
 
 
 /**
- *
+ * Helpers class with some usefull functions
  */
 
 // Class of help methods

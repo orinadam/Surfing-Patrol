@@ -25,6 +25,11 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Base64;
 
+/**
+ * Register screen
+ * register to the application using this screen
+ * makes validation like checking if username/email already exists etc.
+ */
 public class Register extends AppCompatActivity {
     TextInputLayout regName, regUsername, regEmail, regPassword;
     Button registerButton;

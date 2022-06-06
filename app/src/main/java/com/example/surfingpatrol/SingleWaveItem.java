@@ -1,8 +1,8 @@
 package com.example.surfingpatrol;
 
 import java.io.Serializable;
-/*
-    Class which represents a single wave Item for everyday
+/**
+   * Class which represents a single wave Item for every hour
  */
 public class SingleWaveItem implements Serializable {
     public String hour;
@@ -15,8 +15,5 @@ public class SingleWaveItem implements Serializable {
         this.period = period;
         this.description = description;
     }
-/*    public String getHour(){ return hour; }
-    public String getHeight(){ return height; }
-    public String getPeriod(){ return period; }
-    public String getDescription(){ return description; }*/
+
 }

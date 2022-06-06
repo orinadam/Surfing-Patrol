@@ -13,6 +13,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
+
+/**
+ * Spots list custom asapter
+ * Arranges all spots and shows them in a listview
+ * creates a special view for each spot
+ */
+
 public class SpotsListAdapter extends ArrayAdapter<Spot> {
     private Context mContext;
     private List<Spot> spots;
@@ -39,7 +46,7 @@ public class SpotsListAdapter extends ArrayAdapter<Spot> {
         TextView wave = (TextView) rowView.findViewById(R.id.spot_wave);
 
         name.setText(spot.name);
-        temperature.setText(spot.temperature + "°");
+        temperature.setText(spot.waterTemperature + "°");
        wind.setText(spot.windKnots);
         wind_direction.setRotation((float)(spot.direction));
         wave.setText(spot.wave);

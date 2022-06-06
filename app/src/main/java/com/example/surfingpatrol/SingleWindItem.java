@@ -1,8 +1,8 @@
 package com.example.surfingpatrol;
 
 import java.io.Serializable;
-/*
-    Class which represents a single wind Item for everyday
+/**
+  *  Class which represents a single wind Item for every hour
  */
 public class SingleWindItem implements Serializable {
     public String hour;
@@ -15,8 +15,5 @@ public class SingleWindItem implements Serializable {
         this.direction = direction;
         this.description = description;
     }
-/*    public String getHour(){ return hour; }
-    public String getStrength(){ return strength; }
-    public String getDirection(){ return direction; }
-    public String getDescription(){ return description; }*/
+
 }

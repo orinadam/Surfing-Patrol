@@ -21,9 +21,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/*
-    A class represents WaveScreen which shows list of waves on forecast
-* */
+/**
+  *  A class represents WaveScreen which shows list of waves on forecast
+*/
 public class WavesScreen extends AppCompatActivity {
 
     Button windBtn;

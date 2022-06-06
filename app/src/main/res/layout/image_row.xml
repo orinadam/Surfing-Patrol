@@ -2,28 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginBottom="15dp"
+    >
 
     <TextView
         android:id="@+id/beach_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        />
     <TextView
         android:id="@+id/publishe_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp" />
+        android:textColor="#BFCCCCCC"
+        android:textStyle="normal"
+        android:textSize="20sp" />
     <TextView
         android:id="@+id/conditions_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp" />
+        android:textColor="#DDDDDD"
+        android:textSize="16sp" />
     <ImageView
+        android:layout_marginTop="8dp"
         android:id="@+id/beach_image"
-        android:layout_marginLeft="60dp"
-        android:layout_width="240dp"
-        android:layout_height="240dp"/>
+        android:layout_marginLeft="30dp"
+        android:layout_width="340dp"
+        android:layout_height="400dp"
+        android:layout_marginBottom="15dp"
+        />
 
 
 </LinearLayout>

@@ -22,16 +22,30 @@
         android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
+
         <ImageButton
             android:id="@+id/spots_logout"
             android:layout_width="20dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="120dp"
             android:layout_weight="1"
             android:background="#00222222"
-            android:paddingTop="15dp"
-            android:src="@android:drawable/ic_menu_revert"
+            android:paddingTop="4dp"
+            android:src="@android:drawable/ic_delete"
+
+            />
+
+        <ImageButton
+            android:id="@+id/view_posts"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="#00222222"
+            android:paddingTop="2dp"
+            android:src="@android:drawable/ic_menu_add"
             android:tint="#BFFFFFFF" />
+
     </LinearLayout>
 
     <ListView

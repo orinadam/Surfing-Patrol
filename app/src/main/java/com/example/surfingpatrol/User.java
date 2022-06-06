@@ -2,9 +2,9 @@ package com.example.surfingpatrol;
 
 import java.io.Serializable;
 
-/*
-    A user in the app (saved on firebase)
-* */
+/**
+  *  A user in the app (saved on firebase)
+*/
 public class User implements Serializable {
     public String name, username, email, password;
 
@@ -37,5 +37,5 @@ public class User implements Serializable {
 
     public String generateId(){
         return Helpers.generateId(username);
-    }
+    } // Generating a unique id for each user
 }

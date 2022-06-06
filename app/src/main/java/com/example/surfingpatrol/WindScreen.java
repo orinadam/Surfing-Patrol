@@ -11,6 +11,11 @@ import android.widget.ListView;
 
 import java.util.Arrays;
 
+/**
+ * Wind screen which shows the wind forecast
+ * Shows the winds list view
+ */
+
 public class WindScreen extends AppCompatActivity {
     Button waveBtn;
     Button temperatureBtn;

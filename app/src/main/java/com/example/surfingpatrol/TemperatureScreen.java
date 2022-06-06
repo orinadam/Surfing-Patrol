@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+/**
+ * Temperature screen which shows the air and water temperature
+ */
 public class TemperatureScreen extends AppCompatActivity {
     Button windBtn;
     Button waveBtn;

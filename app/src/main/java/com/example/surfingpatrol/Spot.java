@@ -2,8 +2,8 @@ package com.example.surfingpatrol;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-/*
-    Class which represents a surfing spots
+/**
+  *  Class which represents a surfing spots
  */
 public class Spot implements Serializable {
     public String name;
@@ -28,25 +28,4 @@ public class Spot implements Serializable {
 
     public Spot(){};
 
-/*    public int getDirection() {
-        return direction;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getWave() {
-        return wave;
-    }
-
-    public String getWindKnots() {
-        return windKnots;
-    }
-
-    public int getTemperature() { return temperature; }
-
-    public  ArrayList<WaveItem> getWaves() { return waves; }
-
-    public  ArrayList<WindItem> getWinds() { return winds; }*/
 }
